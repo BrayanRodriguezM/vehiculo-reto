@@ -1,0 +1,58 @@
+<html>
+<head>
+    <title>vehiculo automatico</title>
+    <link rel="stylesheet" href="pagina.css">
+    <link
+      rel="shortcut icon"
+      href="./images/manofreno.png"
+    />
+    
+</head>
+<body>
+<script src="./pagina.js"></script>
+<div><button name="button" class='imgRedonda c1' id="izquierda" onclick=""></button></div>
+<div><button name="button" class='imgRedonda c2' id="derecha" onclick=""></button></div>
+<div><button name="button" class='imgRedonda c3' id="encender" onclick="actions.encender()"></button></div>
+<div><button name="button" class='imgRedonda c4' id="triangulo" onclick=""></button></div>
+<div><button name="button" class='imgRedonda c5' id="clutch" onclick="actions.clutchear()"></button></div>
+<div><button name="button" class='imgRedonda c6' id="freno" onclick="actions.frenar()"></button></div>
+<div><button name="button" class='imgRedonda c7' id="acelerador" onclick="actions.acelerar()"></button></div>
+<div><button name="button" class='imgRedonda c8' id="fmano" onclick="actions.frenarManual()"></button></div>
+<div class="cambios"></div>
+<div class="tablero">
+    <p class="intotablero" id="tablero">
+      Consola
+    </p>
+    <p class="intotablero2" id="titulo">Bienvenido al simulador de encender un Vehiculo.</p>
+</div>
+<div class="imgRedonda c9">
+    <button class="cambios-N" onclick="actions.marchas(0)">N</button>
+    <button class="cambios-1" onclick="actions.marchas(1)">1</button>
+    <button class="cambios-2" onclick="actions.marchas(2)">2</button>
+    <button class="cambios-3" onclick="actions.marchas(3)">3</button>
+    <button class="cambios-4" onclick="actions.marchas(4)">4</button>
+    <button class="cambios-5" onclick="actions.marchas(5)">5</button>
+    <button class="cambios-R" onclick="actions.marchas(6)">R</button></div>
+
+    <div class="distancia-recorrida">
+        <p class="imgRedonda" >
+          Distancia recorrida: 0 KM
+        </p>
+      </div>
+
+      <div class="velocidad-actual">
+        <p class="imgRedonda" id="velocidad">
+          Velocidad: 0 KM/H
+        </p>
+      </div>
+
+      <div class="tiempo-transcurrido">
+        <p class="imgRedonda">
+          Tiempo: 0 Min
+        </p>
+      </div>
+
+    
+    
+</body>
+</html>

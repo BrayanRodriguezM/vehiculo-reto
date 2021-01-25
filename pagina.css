@@ -1,0 +1,177 @@
+body {
+background-image: url(images/panelauto.jpg);
+background-position: center center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+div{
+    background-color: none;
+    font-size: 15px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif ;
+    text-align: center;
+    font-weight: bolder;
+}
+.imgRedonda{
+    border-radius:15px;
+    border:5px solid black;
+    background-color:#ff000099;
+    }
+
+.c1{
+    position:fixed;
+    left:250;
+    top:150;
+    background-image:url(./images/left-arrow.png);
+    background-size: cover;
+    background-repeat:no-repeat;
+    height:75px;
+    width:75px;
+    background-position:center;
+}
+
+.c2{
+    position:fixed;
+    left:550;
+    top:150;
+    background-image:url(./images/right-arrow.png);
+    background-size: cover;
+    background-repeat:no-repeat;
+    height:75px;
+    width:75px;
+    background-position:center;
+}
+
+.c3{
+    position:fixed;
+    left:450;
+    top:100;
+    background-image:url(./images/power.png);
+    background-size: cover;
+    background-repeat:no-repeat;
+    height:75px;
+    width:75px;
+    background-position:center;
+}
+
+.c4{
+    position:fixed;
+    left:750;
+    top:120;
+    background-image:url(./images/triangle.png);
+    background-size: cover;
+    background-repeat:no-repeat;
+    height:75px;
+    width:75px;
+    background-position:center;
+}
+
+.c5{
+    position:fixed;
+    left:250;
+    top:400;
+    background-image:url(./images/clutch.png);
+    background-size: cover;
+    background-repeat:no-repeat;
+    height:75px;
+    width:75px;
+    background-position:center;
+}
+
+.c6{
+    position:fixed;
+    left:415;
+    top:400;
+    background-image:url(./images/freno.png);
+    background-size: cover;
+    background-repeat:no-repeat;
+    height:75px;
+    width:75px;
+    background-position:center;
+}
+
+.c7{
+    position:fixed;
+    left:500;
+    top:400;
+    background-image:url(./images/acelerador.png);
+    background-size: cover;
+    background-repeat:no-repeat;
+    height:75px;
+    width:75px;
+    background-position:center;
+}
+
+.c8{
+    position:fixed;
+    left:700;
+    top:500;
+    background-image:url(./images/manofreno.png);
+    background-size: cover;
+    background-repeat:no-repeat;
+    height:75px;
+    width:75px;
+    background-position:center;
+    
+}
+
+.c9{
+    position:fixed;
+    left:740;
+    top:390;
+    
+}
+.tablero{
+position: fixed;
+border:5px solid black;
+background-color:#ff000099;
+  top: 2%;
+  right: 2%;
+  width: 350px;
+  height: 50%;
+}
+
+.intotablero{
+    padding:20px;
+}
+.intotablero2{
+    padding:20px;
+}
+
+button {
+    background-color:#56070C90;
+    border:1px solid black;
+    font: weight 3; ;
+    cursor: pointer;
+    transition-duration: 1s;
+  }
+
+  button:hover{
+    background-color: red;
+    transition-duration: 0.15s;
+    
+}
+
+  button:active {
+    background-color: pink;
+    box-shadow: red 0px 0px 30px 5px;
+    transition-duration: 0.1s;
+  }
+
+.distancia-recorrida{
+    position:fixed;
+    right:0;
+    bottom:0;
+}
+
+.velocidad-actual{
+    position:fixed;
+    right:230;
+    bottom:0;
+}
+
+.tiempo-transcurrido{
+    position:fixed;
+    right:405;
+    bottom:0;
+}
