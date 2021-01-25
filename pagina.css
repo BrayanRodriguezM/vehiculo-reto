@@ -131,13 +131,6 @@ background-color:#ff000099;
   height: 50%;
 }
 
-.intotablero{
-    padding:20px;
-}
-.intotablero2{
-    padding:20px;
-}
-
 button {
     background-color:#56070C90;
     border:1px solid black;
@@ -174,4 +167,14 @@ button {
     position:fixed;
     right:405;
     bottom:0;
+}
+
+.intotablero{
+    padding:20px;
+    font-size: 25px;
+}
+
+.intotablero2{
+    padding:20px;
+    font-size: 20px;
 }

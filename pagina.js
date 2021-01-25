@@ -10,10 +10,31 @@ let freno=false;
 let acelerador=false;
 let cambios=null;
 
-//luces
-let luces=false;
-let luzleft=false;
-let luzright=false;
+//variables de espacio en el mapa
+let numParadas = 0;
+let distanciaRecorrido = 0;
+let timeParada = 0;
+let kmXParada = 0;
+// Fin variables de ubicacion
+let stop_timeout = 0;
+let var_recorrido_recorrer = 0;
+// let var_tiempo_faltante = 0;
+// Variables para las paradas
+let cantidad_Paradas_listas = 0;
+let km_parada_lista = 0;
+let time_en_parada = 0;
+// Comprobante para las paradas
+let comprobante_tiempo_en_parada = 0;
+let comprobante_parada = false;
+let comprobante_frenado = false;
+let comprobante_retroceso = false;
+let comprobante_retroceso_time = false;
+// Fin
+// Variables para calcular la velocidad, y la distacia recorrida
+let velocidadAcelerando = 0;
+let distanciaRecorrida_velocidad = 0;
+let timeViaje_Tesla = 0;
+// Fin de las variables para calcular
 
 
 
@@ -23,7 +44,7 @@ class Action{
     
 encender(){
     if(cambios===0 && freno_mano===true){
-        document.getElementById("titulo").innerHTML="encendido";
+        document.getElementById("titulo").innerHTML="Encendido!!!";
         return(auto_on=true)
 } else if (cambios != 0){
     document.getElementById("titulo").innerHTML="Por favor, ponga los cambios en neutro.";
@@ -38,6 +59,15 @@ encender(){
 marchas(num) {
     document.getElementById("titulo").innerHTML=`Marcha: ${num}`;
     return(cambios=num)
+}
+marchasN(){
+    document.getElementById("titulo").innerHTML=`Marcha: Neutro`;
+    return(cambios=0)
+}
+
+marchasR(){
+    document.getElementById("titulo").innerHTML=`Marcha: Reversa`;
+    return(cambios=6)
 }
 
 
@@ -61,7 +91,6 @@ arrancar(){
         freno_mano === false &&
         cambios != 0
         ){
-            document.getElementById("titulo").innerHTML="RUUUN, RUUUN";
             document.getElementById("titulo").innerHTML="Suelte el freno de pie y acelere y suelte el clutch progresivamente a la vez que acelera."; 
         return (auto_run=true);
         } else if (clutch !=true){document.getElementById("titulo").innerHTML="Por favor, precione el clutch.";}
@@ -124,5 +153,74 @@ acelerar(){
       "El carro no se encuentra encendido.";
     }}
 }
+
+function calvel(){
+    cal_distancia();
+    cal_tiempo();
+
+    if (
+        velocidadAcelerando < 30 &&
+        cambios === 1 &&
+        comprobante_parada === false &&
+        comprobante_frenado === false 
+    ){document.getElementById("velocidad_actual").innerHTML=`velocidad: ${(velocidadAcelerando+=1)} KM/H`;
+        stop_timeout=setTimeout(calvel, 1000);}
+        else if(velocidadAcelerando >=30 && cambios===1){
+            document.getElementById("titulo").innerHTML="Cambie a la marcha 2.";
+            alert('El freno y el clutch se encuentran activados, el acelerador se desactivo.');
+        clutch = true;
+        freno = true;
+        acelerador = false;
+        }
+
+        if (
+            velocidadAcelerando >= 30 &&
+            velocidadAcelerando < 60 &&
+            cambios === 2 &&
+            comprobante_parada === false &&
+            comprobante_frenado === false 
+        ){document.getElementById("velocidad_actual").innerHTML=`velocidad: ${(velocidadAcelerando+=1)} KM/H`;
+            stop_timeout=setTimeout(calvel, 1000);}
+            else if(velocidadAcelerando > 30 && velocidadAcelerando === 60 && cambios===2){
+                document.getElementById("titulo").innerHTML="Cambie a la marcha 3.";
+            } else if(cambios===2&&velocidadAcelerando<30){
+                document.getElementById("titulo").innerHTML="Cambie a la marcha 1.";
+
+            }
+
+        if (
+            velocidadAcelerando >= 60 &&
+            velocidadAcelerando < 86 &&
+            cambios === 3 &&
+            comprobante_parada === false &&
+            comprobante_frenado === false 
+         ){document.getElementById("velocidad_actual").innerHTML=`velocidad: ${(velocidadAcelerando+=1)} KM/H`;
+            stop_timeout=setTimeout(calvel, 1000);}
+            else if(velocidadAcelerando >=60 && velocidadAcelerando===86 && cambios===3){
+                document.getElementById("titulo").innerHTML="Cambie a la marcha 4.";}
+                else if(cambios===3 && velocidadAcelerando < 60){
+                    document.getElementById('titulo').innerHTML='Regrese a la marcha 2.'
+                }
+        if (
+            velocidadAcelerando >= 86 &&
+            velocidadAcelerando < 110 &&
+            cambios === 4 &&
+            comprobante_parada === false &&
+            comprobante_frenado === false 
+        ){  document.getElementById("velocidad_actual").innerHTML=`velocidad: ${(velocidadAcelerando+=1)} KM/H`;
+            stop_timeout=setTimeout(calvel, 1000);}
+            else if(velocidadAcelerando >=86 && velocidadAcelerando===110 && cambios===4){
+            document.getElementById("titulo").innerHTML="Este es el limite";}
+            else if(cambios===4 && velocidadAcelerando < 86){
+                document.getElementById('titulo').innerHTML='Regrese a la marcha 3.'
+            
+
+        }
+                }
+    
+
+
+
+
 let actions = new Action();
 
