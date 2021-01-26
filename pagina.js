@@ -17,7 +17,7 @@ let timeParada = 0;
 let kmXParada = 0;
 // Fin variables de ubicacion
 let stop_timeout = 0;
-let var_recorrido_recorrer = 0;
+let var_recorrer = 0;
 // let var_tiempo_faltante = 0;
 // Variables para las paradas
 let cantidad_Paradas_listas = 0;
@@ -33,7 +33,7 @@ let comprobante_retroceso_time = false;
 // Variables para calcular la velocidad, y la distacia recorrida
 let velocidadAcelerando = 0;
 let distanciaRecorrida_velocidad = 0;
-let timeViaje_Tesla = 0;
+let time_Viaje = 0;
 // Fin de las variables para calcular
 
 
@@ -216,11 +216,53 @@ function calvel(){
             
 
         }
-                }
-    
 
+
+        if (
+            velocidadAcelerando === 0 &&
+            cambios ===5 &&
+            comprobante_parada=== false &&
+            comprobante_frenado=== false
+        ){
+            document.getElementById(
+                "tiempo-transcurrido"
+            ).innerHTML=`Tiempo:${(time_Viaje=0)} Min`;
+            timeRetroceso();
+        } else if(velocidadAcelerando != 0 && cambios===5){
+            document.getElementById("titulo".innerHTML="No puede retroceder.")
+        }
+                }
+
+
+function calvel_frenado(){
+    if(freno===true && comprobante_frenado===false && cambios !=0){
+    document.getElementById("velocidad-actual").innerHTML=`Velocidad:${(velocidadAcelerando=0)} KM/H`;
+    document.getElementById("titulo").innerHTML=`Frenado.`;
+    actions.clutchear();
+    console.log("clutch", clutch);
+    actions.acelerar();
+    console.log("acelerado", acelerador);
+    console.log("com_fren", comprobante_frenado);
+    return comprobante_frenado=true;
+} else if(
+    freno === false &&
+    comprobante_frenado === true &&
+    cambios != 0
+) {
+    return(
+        comprobante_frenado === false,
+        console.log(comprobante_frenado)
+    )
+    
+}
+
+    
+}
+
+function caltime_viaje(){
+    time_Viaje = Math.floor(Math.sqrt(var_recorrer));
+}
 
 
 
 let actions = new Action();
-

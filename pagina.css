@@ -148,7 +148,6 @@ button {
   button:active {
     background-color: pink;
     box-shadow: red 0px 0px 30px 5px;
-    transition-duration: 0.1s;
   }
 
 .distancia-recorrida{
