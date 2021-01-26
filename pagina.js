@@ -261,6 +261,13 @@ function calvel_frenado(){
 
 function caltime_viaje(){
     time_Viaje = Math.floor(Math.sqrt(var_recorrer));
+
+    if (time_Viaje > 0) {
+        document.getElementById(
+            "tiempo-transcurrido"
+        ).innerHTML=`Riempo:${time_Viaje} Min`;
+        console.log(time_Viaje)
+    }
 }
 
 
